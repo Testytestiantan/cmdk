@@ -782,7 +782,7 @@ const Separator = React.forwardRef<HTMLDivElement, SeparatorProps>((props, forwa
 
 /**
  * Command menu input.
- * All props are forwarded to the underyling `input` element.
+ * All props are forwarded to the underlying `input` element.
  */
 const Input = React.forwardRef<HTMLInputElement, InputProps>((props, forwardedRef) => {
   const { onValueChange, ...etc } = props
