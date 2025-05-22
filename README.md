@@ -166,7 +166,7 @@ return (
 )
 ```
 
-You can provide a `container` prop that accepts an HTML element that is forwarded to Radix UI's Dialog Portal component to specify which element the Dialog should portal into (defaults to `body`). See the [Radix Documentation](https://www.radix-ui.com/docs/primitives/components/dialog#portal) for more information.
+The `container` prop specifies where the Dialog should portal to. Pass a DOM element and it will be forwarded to Radix UI's `Portal` component (defaults to `document.body`). See the [Radix Documentation](https://www.radix-ui.com/docs/primitives/components/dialog#portal) for more.
 
 ```tsx
 const containerElement = React.useRef(null)
@@ -181,7 +181,7 @@ return (
 
 ### Input `[cmdk-input]`
 
-All props are forwarded to the underlying `input` element. Can be controlled with the `value` and `onValueChange` props.
+All props are forwarded to the underlying `input` element. Can be controlled with the `value` and `onValueChange` props. The search query is trimmed before being stored.
 
 ```tsx
 const [search, setSearch] = React.useState('')
@@ -191,7 +191,7 @@ return <Command.Input value={search} onValueChange={setSearch} />
 
 ### List `[cmdk-list]`
 
-Contains items and groups. Animate height using the `--cmdk-list-height` CSS variable.
+The list renders search results and manages ARIA roles. It exposes the `--cmdk-list-height` CSS variable which reflects the list's height so you can animate it as results change.
 
 ```css
 [cmdk-list] {
