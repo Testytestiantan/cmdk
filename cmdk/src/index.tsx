@@ -794,7 +794,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, forwardedRe
 
   React.useEffect(() => {
     if (props.value != null) {
-      store.setState('search', props.value)
+      store.setState('search', props.value.trim())
     }
   }, [props.value])
 
@@ -816,11 +816,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>((props, forwardedRe
       type="text"
       value={isControlled ? props.value : search}
       onChange={(e) => {
+        const value = e.target.value
+
         if (!isControlled) {
-          store.setState('search', e.target.value)
+          store.setState('search', value.trim())
         }
 
-        onValueChange?.(e.target.value)
+        onValueChange?.(value)
       }}
     />
   )
